@@ -1,0 +1,17 @@
+[project]
+name = "pyrabbit-test"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "astroid>=3.3.11",
+    "pylint>=3.3.8",
+]
+
+[tool.pylint.main]
+load-plugins = ["pyrabbit_test.plugin"]
+init-hook="import sys, os; from pathlib import Path; sys.path.append(Path('pyproject.toml').parent.as_posix())"
