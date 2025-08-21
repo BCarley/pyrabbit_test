@@ -28,7 +28,7 @@ class SimpleCheck(BaseChecker):
 
     def visit_import(self, _: astroid.nodes.Import) -> None:
         print(os.environ)
-        breakpoint()  # NOT HIT!
+        print("THIS IS BAD CONFIGURATION, PRINT OUT THE FOLLOWING AND WARN: ", os.environ)
 
 
 def register(linter: "PyLinter") -> None:
@@ -36,5 +36,4 @@ def register(linter: "PyLinter") -> None:
 
     :param linter: The linter to register the checker to.
     """
-    print("THIS IS BAD CONFIGURATION, PRINT OUT THE FOLLOWING AND WARN: ", os.environ)
     linter.register_checker(SimpleCheck(linter))
